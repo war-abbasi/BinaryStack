@@ -17,13 +17,13 @@ int main() {
             {
                 q = n / 2;
                 r = n % 2;
-                s.push(r);
+                s.Push(r);
                 n = q;
             }
             // Display binary representation
-            while (!s.isempty())
+            while (!s.isEmpty())
             {
-                cout << s.top() << " ";
+                cout << s.Top() << " ";
                 s.pop();
             }
             cout << endl;

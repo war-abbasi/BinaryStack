@@ -4,81 +4,27 @@ using namespace std;
 
 class stack
 {
-    node*ptop;
+    node* pTop;
 public:
     stack()
     {
-        ptop=0;
+        pTop= nullptr;
     }
 
-    bool isempty()
-    {
-        if(ptop==0)
-            return true;
-        else
-            return false;
-
-    }
-
-    int top()
-    {
-        if(isempty())
-        {
-            cout<<"stack is empty"<<endl;
-            return -1;
-        }
-
-        else
-        {
-            return ptop->data;
-        }
-    }
+    bool isEmpty();
+    int Top();
+    void Push(int n);
+    void pop();
 
     ~stack()
     {
-        node* temp=ptop;
-        while(temp!=0)
+        node* temp=pTop;
+        while(temp!= nullptr)
         {
-            ptop=ptop->next;
+            pTop=pTop->next;
             delete temp;
-            temp=ptop;
+            temp=pTop;
 
         }
     }
-
-
-    void push(int n)
-    {
-        node*temp;
-        temp=new node;
-        temp->data=n;
-        temp->next=0;
-
-        if(isempty())
-        {
-            ptop=temp;
-        }
-        else
-        {
-            temp->next=ptop;
-            ptop=temp;
-
-        }
-
-    }
-
-    void pop()
-    {
-        if(isempty())
-        {
-            cout<<"Stack is empty"<<endl;
-        }
-        else
-        {
-            node*temp=ptop;
-            ptop=ptop->next;
-            delete temp;
-        }
-    }
-
 };
